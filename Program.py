@@ -1,4 +1,20 @@
+'''
+Authors:
+- Antonio Roblero Alejandro Jesús
+- Rojas Méndez Gabriel
+'''
+
 import binascii
+import fileinput
+
+lines = []
+for line in fileinput.input():
+    lines.append(line)
+
+if lines:
+    message = lines[0]
+else:
+    message = ''
 
 Sbox = [
     41, 46, 67, 201, 162, 216, 124, 1, 61, 54, 84, 161, 236, 240, 6,
@@ -21,9 +37,8 @@ Sbox = [
     31, 26, 219, 153, 141, 51, 159, 17, 131, 20
 ]
 
-block_size = 16  # 16 bytes or 128 bits
-
-message = "abc"
+# 16 bytes or 128 bits
+block_size = 16
 message_bytes = bytearray(message, 'utf-8')
 
 #Step 1 Padding
